@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Appointment</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Book Appointment</h1>
+
+    <form method="POST">
+
+        <label>Patient</label>
+
+        <select name="patient_id" required>
+
+            {% for patient in patients %}
+
+            <option value="{{ patient[0] }}">
+                {{ patient[1] }}
+            </option>
+
+            {% endfor %}
+
+        </select>
+
+        <br><br>
+
+        <input
+            type="text"
+            name="doctor"
+            placeholder="Doctor Name"
+            required
+        >
+
+        <input
+            type="date"
+            name="date"
+            required
+        >
+
+        <input
+            type="time"
+            name="time"
+            required
+        >
+
+        <button type="submit">
+            Book Appointment
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/">Dashboard</a>
+
+</div>
+
+</body>
+
+</html>

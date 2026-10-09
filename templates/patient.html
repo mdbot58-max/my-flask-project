@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Patients</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Patient List</h1>
+
+    <form method="GET">
+
+        <input
+            type="text"
+            name="search"
+            placeholder="Search patient"
+        >
+
+        <button type="submit">
+            Search
+        </button>
+
+    </form>
+
+    <br>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Phone</th>
+            <th>Disease</th>
+            <th>Action</th>
+        </tr>
+
+        {% for patient in patients %}
+
+        <tr>
+
+            <td>{{ patient[0] }}</td>
+            <td>{{ patient[1] }}</td>
+            <td>{{ patient[2] }}</td>
+            <td>{{ patient[3] }}</td>
+            <td>{{ patient[4] }}</td>
+            <td>{{ patient[5] }}</td>
+
+            <td>
+                <a href="/edit_patient/{{ patient[0] }}">
+                    Edit
+                </a>
+
+                |
+
+                <a href="/delete_patient/{{ patient[0] }}">
+                    Delete
+                </a>
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="/">Dashboard</a>
+
+</div>
+
+</body>
+
+</html>
